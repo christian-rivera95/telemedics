@@ -54,6 +54,8 @@ export class Login extends Component {
         username: "",
         password: ""
       },
+      userError: false,
+      passwordError: false,
       username: "",
       password: ""
     };
@@ -81,17 +83,25 @@ export class Login extends Component {
 
   onClick() {
     const { users, username, password } = this.state;
+    let userError = false;
+    let passwordError = false;
     users.map(user => {
-      console.log(user);
-      if (user.username === username && user.userpassword === password)
+      if (user.username === username && user.userpassword === password) {
         this.setState({ showPage: true });
-
-      return user;
+      } else {
+        user.username !== username ? (userError = true) : (userError = false);
+        user.userpassword !== password
+          ? (passwordError = true)
+          : (passwordError = false);
+      }
     });
+    if (userError) this.setState({ userError: true });
+    if (passwordError) this.setState({ passwordError: true });
   }
 
   render() {
     const { classes } = this.props;
+    const { userError, passwordError } = this.state;
     if (!this.state.showPage) {
       return (
         <Container component="main" maxWidth="xs">
@@ -105,6 +115,8 @@ export class Login extends Component {
             </Typography>
             <form className={classes.form} noValidate>
               <TextField
+                error={userError}
+                helperText={userError ? "Invalid user" : null}
                 variant="outlined"
                 margin="normal"
                 required
@@ -117,6 +129,8 @@ export class Login extends Component {
                 onChange={e => this.setState({ username: e.target.value })}
               />
               <TextField
+                error={passwordError}
+                helperText={passwordError ? "Incorrect Password" : null}
                 variant="outlined"
                 margin="normal"
                 required
