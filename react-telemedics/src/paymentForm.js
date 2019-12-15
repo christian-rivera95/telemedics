@@ -1,50 +1,43 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import React from "react";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
 
 export default function PaymentForm() {
-    return (
-        <React.Fragment>
-            <Typography variant="h6" gutterBottom>
-                Datos Medicos
-            </Typography>
-            <Grid container spacing={3}>
-                <Grid item xs={12} md={6}>
-                    <TextField
-                        required
-                        id="cardName"
-                        label="Padece de alguna enfermedad?"
-                        fullWidth
-                    />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <TextField
-                        required
-                        id="cardNumber"
-                        label="Sintomas del Paciente"
-                        fullWidth
-                    />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <TextField
-                        required
-                        id="expDate"
-                        label="Ha recibido alguna vacuna?"
-                        fullWidth
-                    />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <TextField
-                        required
-                        id="cvv"
-                        label="Tiene alergias?"
-                        fullWidth
-                    />
-                </Grid>
-            </Grid>
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <Typography variant="h6" gutterBottom>
+        Datos Medicos
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6}>
+          <TextField
+            required
+            id="cardName"
+            label="Padece de alguna enfermedad?"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            required
+            id="cardNumber"
+            label="Sintomas del Paciente"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            required
+            id="expDate"
+            label="Ha recibido alguna vacuna?"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField required id="cvv" label="Tiene alergias?" fullWidth />
+        </Grid>
+      </Grid>
+    </React.Fragment>
+  );
 }
