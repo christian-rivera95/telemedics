@@ -23,31 +23,7 @@ connection.connect(err => {
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("go to /products to see products");
-});
-
-app.get("/products/add", (req, res) => {
-  const { name, price } = req.query;
-  const INSERT_PRODUCTS_QUERY = `INSERT INTO products (name,price) VALUES(${name}, ${price})`;
-  connection.query(INSERT_PRODUCTS_QUERY, (err, results) => {
-    if (err) {
-      return res.send(err);
-    } else {
-      return res.send("successfully added product");
-    }
-  });
-});
-
-app.get("/products", (req, res) => {
-  connection.query(SELECT_ALL_PRODUCTS_QUERY, (err, results) => {
-    if (err) {
-      return res.send(err);
-    } else {
-      return res.json({
-        data: results
-      });
-    }
-  });
+  res.send("go to /users to see products");
 });
 
 app.get("/users", (req, res) => {
