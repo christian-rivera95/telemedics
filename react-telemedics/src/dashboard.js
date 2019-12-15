@@ -25,7 +25,6 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   icon: {
-    marginRight: theme.spacing(2),
     color: "white"
   },
   heroContent: {
@@ -51,14 +50,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Dashboard() {
+export default function Dashboard({ isAdmin }) {
   const classes = useStyles();
   const [showForm, setShowForm] = useState(false);
 
   let onClick = () => {
     setShowForm(true);
   };
-
   if (!showForm) {
     return (
       <React.Fragment>
@@ -75,10 +73,12 @@ export default function Dashboard() {
                   Bienvenido
                 </Typography>
               </Grid>
-              <Grid item xs={1}>
-                <Button>
-                  <SettingsApplications className={classes.icon} />
-                </Button>
+              <Grid item xs={5}>
+                {isAdmin ? (
+                  <Button>
+                    <SettingsApplications className={classes.icon} />
+                  </Button>
+                ) : null}
               </Grid>
             </Grid>
           </Toolbar>

@@ -94,6 +94,7 @@ export class Login extends Component {
           ? (passwordError = true)
           : (passwordError = false);
       }
+      return user;
     });
     if (userError) this.setState({ userError: true });
     if (passwordError) this.setState({ passwordError: true });
@@ -159,7 +160,7 @@ export class Login extends Component {
         </Container>
       );
     } else {
-      return <Dashboard />;
+      return <Dashboard isAdmin={true} />;
     }
   }
 }
