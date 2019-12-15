@@ -95,29 +95,29 @@ export default function Dashboard({ isAdmin }) {
               >
                 Consulta tu Referencia
               </Typography>
-              <div className={classes.heroButtons}>
-                <Grid container spacing={2} direction="column" justify="center">
-                  <Grid item>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={onClick}
-                    >
-                      Llena tu Referencia
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="primary">
-                      Consulta tu Red
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="primary">
-                      Mapas de Redes
-                    </Button>
-                  </Grid>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                spacing={3}
+              >
+                <Grid item>
+                  <Button variant="contained" color="primary" onClick={onClick}>
+                    Llena tu Referencia
+                  </Button>
                 </Grid>
-              </div>
+                <Grid item>
+                  <Button variant="outlined" color="primary">
+                    Consulta tu Red
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" color="primary">
+                    Mapas de Redes
+                  </Button>
+                </Grid>
+              </Grid>
             </Container>
           </div>
         </main>
