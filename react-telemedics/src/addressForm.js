@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import { FormGroup } from '@material-ui/core';
 
 export default function AddressForm() {
     return (
@@ -32,6 +33,43 @@ export default function AddressForm() {
                         autoComplete="lname"
                     />
                 </Grid>
+                <Grid item xs={12} sm={3}>
+                    <TextField
+                        required
+                        id="edad"
+                        name="edad"
+                        label="Edad"
+                        fullWidth
+                        autoComplete="billing address-line1"
+                    />
+                </Grid>
+                <Grid item container xs={12} sm={3} direction="row">
+                    <Grid item>
+                        <Typography variant="body2">Sexo</Typography>
+                    </Grid>
+                    <Grid item>
+                        <FormGroup row>
+                            <FormControlLabel
+                                control={<Checkbox />}
+                                label="M"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox />}
+                                label="F"
+                            />
+                        </FormGroup>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        required
+                        id="telefono"
+                        name="telefono"
+                        label="Telefono"
+                        fullWidth
+                        autoComplete="billing address-line1"
+                    />
+                </Grid>
                 <Grid item xs={12}>
                     <TextField
                         required
@@ -42,11 +80,22 @@ export default function AddressForm() {
                         autoComplete="billing address-line1"
                     />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={6}>
                     <TextField
-                        id="address2"
-                        name="address2"
-                        label="Direccion 2"
+                        required
+                        id="numero_identidad"
+                        name="numero_identidad"
+                        label="Numero de Identidad"
+                        fullWidth
+                        autoComplete="billing address-line2"
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        required
+                        id="no_expediente"
+                        name="no_expediente"
+                        label="Numero de Expediente"
                         fullWidth
                         autoComplete="billing address-line2"
                     />
@@ -63,9 +112,9 @@ export default function AddressForm() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        id="state"
+                        id="depto"
                         name="Departamento"
-                        label="State/Province/Region"
+                        label="Departamento"
                         fullWidth
                     />
                 </Grid>
@@ -85,6 +134,26 @@ export default function AddressForm() {
                         id="blood_type"
                         name="blood_type"
                         label="Tipo de Sangre"
+                        fullWidth
+                        autoComplete="billing country"
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        required
+                        id="acompañante"
+                        name="acompañante"
+                        label="Acompañante"
+                        fullWidth
+                        autoComplete="billing country"
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        required
+                        id="parentezco"
+                        name="parentezco"
+                        label="Parentezco"
                         fullWidth
                         autoComplete="billing country"
                     />
