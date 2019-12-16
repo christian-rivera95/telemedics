@@ -9,7 +9,6 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Dashboard from "./dashboard";
 
 function Copyright() {
   return (
@@ -87,13 +86,14 @@ export class Login extends Component {
     let passwordError = false;
     users.map(user => {
       if (user.username === username && user.userpassword === password) {
-        this.setState({ showPage: true });
+        this.props.history.push("/dashboard");
       } else {
         user.username !== username ? (userError = true) : (userError = false);
         user.userpassword !== password
           ? (passwordError = true)
           : (passwordError = false);
       }
+      return user;
     });
     if (userError) this.setState({ userError: true });
     if (passwordError) this.setState({ passwordError: true });
@@ -102,65 +102,61 @@ export class Login extends Component {
   render() {
     const { classes } = this.props;
     const { userError, passwordError } = this.state;
-    if (!this.state.showPage) {
-      return (
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
+    return (
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Iniciar Sesion
+          </Typography>
+          <form className={classes.form} noValidate>
+            <TextField
+              error={userError}
+              helperText={userError ? "Invalid user" : null}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Usuario"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              onChange={e => this.setState({ username: e.target.value })}
+            />
+            <TextField
+              error={passwordError}
+              helperText={passwordError ? "Incorrect Password" : null}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Contraseña"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={e => this.setState({ password: e.target.value })}
+            />
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={() => this.onClick()}
+            >
               Iniciar Sesion
-            </Typography>
-            <form className={classes.form} noValidate>
-              <TextField
-                error={userError}
-                helperText={userError ? "Invalid user" : null}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Usuario"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                onChange={e => this.setState({ username: e.target.value })}
-              />
-              <TextField
-                error={passwordError}
-                helperText={passwordError ? "Incorrect Password" : null}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Contraseña"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={e => this.setState({ password: e.target.value })}
-              />
-              <Button
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={() => this.onClick()}
-              >
-                Iniciar Sesion
-              </Button>
-            </form>
-          </div>
-          <Box mt={8}>
-            <Copyright />
-          </Box>
-        </Container>
-      );
-    } else {
-      return <Dashboard />;
-    }
+            </Button>
+          </form>
+        </div>
+        <Box mt={8}>
+          <Copyright />
+        </Box>
+      </Container>
+    );
   }
 }
 
