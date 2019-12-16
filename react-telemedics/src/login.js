@@ -67,7 +67,7 @@ export class Login extends Component {
     fetch("http://localhost:4000/users")
       .then(response => response.json())
       .then(response => this.setState({ users: response.data }))
-      .catch(err => console.err(err));
+      .catch(err => console.error(err));
   };
 
   addUser = _ => {
