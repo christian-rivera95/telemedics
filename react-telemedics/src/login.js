@@ -74,7 +74,7 @@ export class Login extends Component {
     const { user } = this.state;
     const { username, password } = user;
     fetch(
-      `http://localhost:4000/users/add?username="${username}"&userpassword=${password}`
+      `http://localhost:4000/users/add?username="${username}"&userpassword="${password}"`
     )
       .then(this.getUsers)
       .catch(err => console.error(err));
