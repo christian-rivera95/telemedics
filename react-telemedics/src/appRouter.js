@@ -5,8 +5,9 @@ import Dashboard from "./dashboard";
 import CheckOut from "./checkout";
 import { Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./privateRoute";
+import CreateUserForm from "./createUserForm";
 
-const App = ({ history }) => (
+const AppRouter = ({ history }) => (
   <Router history={history}>
     <Switch>
       <Route path="/login" component={Login} />
@@ -20,8 +21,13 @@ const App = ({ history }) => (
         component={CheckOut}
         isAuthenticated={true}
       />
+      <PrivateRoute
+        path="/createUser"
+        component={CreateUserForm}
+        isAuthenticated={true}
+      />
     </Switch>
   </Router>
 );
 
-export default App;
+export default AppRouter;

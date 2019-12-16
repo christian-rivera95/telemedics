@@ -59,6 +59,11 @@ export default function Dashboard({ isAdmin, history }) {
   let logOut = () => {
     history.push("/login");
   };
+
+  const createUserForm = () => {
+    history.push("/createUser");
+  };
+
   return (
     <React.Fragment>
       <AppBar position="relative">
@@ -76,7 +81,10 @@ export default function Dashboard({ isAdmin, history }) {
             </Grid>
             <Grid item xs={1}>
               <Button>
-                <SettingsApplications className={classes.icon} />
+                <SettingsApplications
+                  className={classes.icon}
+                  onClick={createUserForm}
+                />
               </Button>
             </Grid>
             <Grid item xs={1}>

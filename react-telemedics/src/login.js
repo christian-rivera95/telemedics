@@ -47,7 +47,6 @@ export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showPage: false,
       users: [],
       user: {
         username: "",
