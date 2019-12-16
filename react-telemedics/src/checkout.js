@@ -18,7 +18,7 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
+            <Link color="inherit" href="http://www.salud.gob.hn/site/">
                 Secretaria de Salud
             </Link>{' '}
             {new Date().getFullYear()}
@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const steps = ['Datos Personales', 'Datos Medicos', 'Referencias Personales'];
+const steps = ['Datos Personales', 'Datos Medicos', 'Establecimiento'];
 
 function getStepContent(step) {
     switch (step) {
